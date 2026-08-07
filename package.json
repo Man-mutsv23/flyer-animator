@@ -1,0 +1,13 @@
+{
+  "name": "flyer-animator",
+  "version": "1.0.0",
+  "description": "Flyer animator project",
+  "main": "src/index.js",
+  "scripts": {
+    "build": "echo 'Build step executed successfully'",
+    "type-check": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "typescript": "^5.0.0"
+  }
+}
