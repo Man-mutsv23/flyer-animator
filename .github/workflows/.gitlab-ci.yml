@@ -1,0 +1,21 @@
+image: node:20
+
+stages:
+  - test
+  - sync
+
+# 1. Runs TypeScript checks & builds your React code
+type-check-and-build:
+  stage: test
+  script:
+    - npm ci
+    - npx tsc --noEmit
+    - npm run build --if-present
+
+# 2. Only runs if the test stage passes, then syncs to GitHub
+push-to-github:
+  stage: sync
+  script:
+    - git push --force https://${GITHUB_TOKEN}@github.com/Man-mutsv23/flyer-animator.git HEAD:main
+  only:
+    - main
